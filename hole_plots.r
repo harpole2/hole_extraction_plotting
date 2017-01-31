@@ -19,7 +19,8 @@ for (i in 1:length(data)){
 	
 	#read data
 	tmp_table <-read.table(data[i])
-	tmp_table<- rename(tmp_table, c("V1"="Axis", "V2"="radius", "V3"="cen_line", "V4"="noIdea", "V5"="type"))
+	tmp_table <-tmp_table[,1:2]
+	tmp_table<- rename(tmp_table, c("V1"="Axis", "V2"=paste(name,"radius",sep="_")))
 	assign(name, tmp_table,envir=.GlobalEnv)
 
 	#make plot names
